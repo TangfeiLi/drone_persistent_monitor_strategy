@@ -1,0 +1,110 @@
+===============================================
+  无人机持久监控实验自动化执行脚本
+===============================================
+
+亲爱的用户，你好！
+
+这是一个完全自动化的实验执行工具，无需任何配置即可使用。
+
+
+【第一步：解压文件】
+--------------------
+将项目文件解压到任意位置，例如：
+  Windows: D:\experiment\
+  Linux:   ~/experiment/
+  
+注意：可以放在任何位置，不需要特定的路径！
+
+
+【第二步：检查文件结构】
+--------------------
+确保解压后的目录结构如下：
+
+drone_persistent_monitor_strategy/
+  ├── launch_jobs.sh              ← 执行脚本
+  ├── Drone_discrete_strategy.exe ← 求解程序
+  ├── infor.json                  ← 配置文件
+  └── data/
+      └── input/                  ← 把你的算例文件(.txt)放这里
+
+
+【第三步：运行脚本】
+--------------------
+
+>>> Windows 用户 <<<
+1. 安装 Git for Windows (如果还没有)
+   下载: https://git-scm.com/download/win
+   
+2. 右键点击项目文件夹 → "Git Bash Here"
+
+3. 输入命令:
+   ./launch_jobs.sh
+
+>>> Linux/Mac 用户 <<<
+1. 打开终端
+
+2. 进入项目目录:
+   cd ~/experiment/drone_persistent_monitor_strategy
+
+3. 赋予执行权限（仅第一次）:
+   chmod +x launch_jobs.sh
+
+4. 运行:
+   ./launch_jobs.sh
+
+
+【高级用法】
+--------------------
+# 只运行 C1 类型的算例
+./launch_jobs.sh C1
+
+# 只运行 R1 类型的算例  
+./launch_jobs.sh R1
+
+# 后台运行（适合长时间实验）
+nohup ./launch_jobs.sh > run.log 2>&1 &
+
+
+【查看结果】
+--------------------
+运行完成后，结果保存在：
+  data/result/results.txt         ← 汇总结果
+  data/result/detail_results.txt  ← 详细结果
+
+
+【常见问题】
+--------------------
+
+Q: 运行到一半中断了怎么办？
+A: 没关系！再次运行脚本，会自动跳过已完成的算例。
+
+Q: 想重新运行某个算例怎么办？
+A: 打开 data/solved_instances.txt，删除对应的算例名称行。
+
+Q: 出错了怎么办？
+A: 查看 data/.err/ 目录下对应的错误日志文件。
+
+Q: Windows 上提示找不到命令？
+A: 必须使用 Git Bash，不能用 CMD 或 PowerShell。
+
+
+【脚本特性】
+--------------------
+✓ 零配置 - 解压即用
+✓ 自动跳过已完成的算例
+✓ 自动创建输出目录
+✓ 实时显示进度
+✓ 详细的统计信息
+✓ 完整的错误日志
+
+
+【需要帮助？】
+--------------------
+详细文档请查看：
+  - QUICK_START.md       （快速入门）
+  - README_LAUNCH_JOBS.md （完整文档）
+
+
+祝实验顺利！
+===============================================
+

@@ -1,0 +1,13 @@
+{
+  "max routes": 50,
+  "Branch strategy": "cluster",
+  "Branch strategies": ["cluster"],
+  "Swith Branch Strategies time": [7200, 7200],
+  "Swith Branch Strategies num": [300000, 480000],
+  "Max Branch time": 7200,
+  "Max Branch num": 200000,
+  "Min gap": 0,
+  "cluster length": 6,
+  "cluster length minus": [0],
+  "isEucli": false
+}
