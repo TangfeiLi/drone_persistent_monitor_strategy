@@ -1,0 +1,150 @@
+\documentclass[preprint,review,12pt,3p,authoryear]{elsarticle}
+% \documentclass[preprint,review,12pt,3p,authoryear]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%\documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+% \documentclass[final,1p,times]{elsarticle}
+% \documentclass[final,1p,times,twocolumn]{elsarticle}
+% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+% \usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+%\usepackage{algorithmic}
+\usepackage{algorithm}
+% \usepackage{enumitem}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{graphicx,color}
+\usepackage{textcomp}
+% \usepackage{apacite}
+\usepackage[noend]{algpseudocode}
+%\usepackage{algpseudocode}
+\usepackage[labelsep=period]{caption}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{diagbox}
+\usepackage{booktabs}
+\usepackage{natbib}
+\usepackage{threeparttable}
+\usepackage{algorithmicx}
+% \usepackage[style=apa, backend=biber]{biblatex}
+% \DeclareLanguageMapping{american}{american-apa}
+% \addbibresource{ref.bib}
+
+\newtheorem{proposition}{Proposition}
+\newproof{proof}{Proof}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\DeclareCaptionLabelFormat{figlabel}{Fig.~#2}
+\captionsetup[figure]{labelformat=figlabel}
+
+\renewcommand{\figureautorefname}{Fig.}
+\algnewcommand{\LineComment}[1]{\State \(\triangleright\) #1}
+
+\journal{Transportation Research Part E}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Arc-Flow Model for Multi-Drone Persistent Monitoring Problem}
+
+\author[inst1]{Author Name}
+\ead{author@email.com}
+
+\address[inst1]{Department/Institution, City, Country}
+
+\begin{abstract}
+This document presents an arc-flow mathematical model for the multi-drone persistent monitoring problem. The model is formulated on a time-expanded network and aims to minimize the total flight time of drones while ensuring continuous coverage of all target points. The model considers drone endurance constraints and flow conservation requirements.
+\end{abstract}
+
+\begin{keyword}
+Drone routing \sep Persistent monitoring \sep Arc-flow model \sep Time-expanded network \sep Mathematical programming
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Mathematical Model}
+
+This section presents the arc-flow formulation for the multi-drone persistent monitoring problem on a time-expanded network.
+
+\subsection{Parameters}
+
+\textbf{Parameters:}
+\begin{itemize}
+    \item $N$: the set of nodes in the time-expanded network, which includes the depot-time node set $N_0$ and the target-time node set $N_V$.
+    \item $N_i$: The set of right-adjacent nodes to node $i$.
+    \item $K$: The set of drones.
+    \item $\delta_{vt}^i$: Whether (v,t) is observed by the drone at node $i$.
+\end{itemize}
+
+\subsection{Decision Variables}
+
+\textbf{Decision Variables:}
+\begin{itemize}
+    \item $x_{ij}^k \in \{0,1\}$: Whether drone $k$ traverses the edge $(i,j)$. $i,j \in N$ (but the target points of $i$ and $j$ are not allowed to be the same), $k \in K$.
+    \item $y_t^k \in \{0,1\}$: The number of drones $k$ available at time $t$ (whether it takes off). $t \in T, k \in K$.
+    \item $q_i^k \in \{0,1,\ldots,T_d\}$: The remaining endurance time of drone $k$ at node $i$.
+\end{itemize}
+
+\subsection{Arc-Flow Formulation}
+
+\textbf{Arc-Flow Model:}
+\begin{align}
+    \text{Min} \quad & \sum_{k \in K} \sum_{i \in N} \sum_{j \in N_i} (t_j - t_i) x_{ij}^k \tag{1} \\
+    \text{s.t.} \quad & \sum_{j \in N_V} x_{ij}^k - \sum_{j \in N_V} x_{ji}^k \leq y_{t_i - 1}^k - y_{t_i}^k \quad \forall i \in N_0, k \in K \tag{2} \\
+    & \sum_{j \in N_V} x_{ij}^k \leq 1 \quad \forall k \in K, i \in N_0 \tag{3} \\
+    & \sum_{j \in N_V} x_{ji}^k \leq 1 \quad \forall k \in K, i \in N_0 \tag{4} \\
+    & \sum_{j \in N} x_{ji}^k = \sum_{j \in N} x_{ij}^k \quad \forall k \in K, i \in N_V \tag{5} \\
+    & T_d - (t_j - t_i) x_{ij}^k \geq q_j^k \quad \forall i \in N_0, j \in N_i, k \in K \tag{6} \\
+    & q_i^k - (t_j - t_i) x_{ij}^k + T_d (1 - x_{ij}^k) \geq q_j^k \quad \forall i \in N_V, j \in N_i, k \in K \tag{7} \\
+    & \sum_{k \in K} \sum_{j \in N_i} \sum_{\substack{i \in N_V | v_i = v}} x_{ij}^k \delta_{vt}^i \geq 1 \quad \forall t \in T, v \in V \tag{8} \\
+    & x_{ij}^k \in \{0,1\} \tag{9} \\
+    & y_t^k \in \{0,1\} \tag{10} \\
+    & q_i^k \in \{0,1,\ldots,T_d\} \tag{11}
+\end{align}
+
+\subsubsection{Constraint Explanations}
+
+\begin{itemize}
+    \item \textbf{Constraint (1)}: Objective function that minimizes the total flight time of all drones.
+    \item \textbf{Constraint (2)}: Flow balance constraint at depot nodes, relating the difference between outgoing and incoming flows to drone availability.
+    
+    \textit{Note on periodic scheduling:} To support periodic scheduling, time indices follow modular arithmetic. Specifically, when $t_i - 1 < 0$, we define $t_i - 1 = |T| - 1$, i.e., $t_i - 1 \equiv (t_i - 1) \mod |T|$. This allows the model to handle cyclic monitoring scenarios where the planning horizon repeats continuously.
+    \item \textbf{Constraint (3)}: Each drone can depart from a depot node at most once.
+    \item \textbf{Constraint (4)}: Each drone can return to a depot node at most once.
+    \item \textbf{Constraint (5)}: Flow conservation constraint at target nodes - incoming flow equals outgoing flow.
+    \item \textbf{Constraint (6)}: Initial endurance constraint when departing from the depot.
+    \item \textbf{Constraint (7)}: Endurance propagation constraint when traveling between target nodes.
+    \item \textbf{Constraint (8)}: Coverage constraint ensuring that each target $v$ is observed by at least one drone at each time period $t$.
+    \item \textbf{Constraints (9-11)}: Domain definitions for decision variables.
+\end{itemize}
+
+\section{Model Characteristics}
+
+The proposed arc-flow model has the following key features:
+
+\begin{enumerate}
+    \item \textbf{Time-Expanded Network}: The model operates on a time-expanded network where nodes represent location-time pairs, enabling explicit modeling of temporal aspects.
+    
+    \item \textbf{Persistent Monitoring}: Through constraint (8), the model ensures continuous coverage of all targets throughout the planning horizon.
+    
+    \item \textbf{Endurance Management}: Constraints (6) and (7) track the remaining endurance of each drone, ensuring that no drone exceeds its maximum flight time $T_d$.
+    
+    \item \textbf{Multi-Drone Coordination}: Multiple drones can cooperate to achieve complete coverage, with the model determining optimal routes and schedules.
+    
+    \item \textbf{Objective Optimization}: The model minimizes total flight time, which is relevant for energy efficiency and operational cost reduction.
+\end{enumerate}
+
+%% References (uncomment if needed)
+% \bibliographystyle{elsarticle-harv}
+% \bibliography{ref}
+
+\end{document}
+
