@@ -21,14 +21,51 @@
 确保解压后的目录结构如下：
 
 drone_persistent_monitor_strategy/
-  ├── launch_jobs.sh              ← 执行脚本
-  ├── Drone_discrete_strategy.exe ← 求解程序
-  ├── infor.json                  ← 配置文件
+  ├── launch_jobs.sh                  ← 执行脚本
+  ├── Drone_discrete_cg.exe           ← CG模式求解程序
+  ├── Drone_discrete_arc_model.exe    ← Arc Model模式求解程序
+  ├── infor.json                      ← 配置文件
   └── data/
-      └── input/                  ← 把你的算例文件(.txt)放这里
+      └── input/                      ← 把你的算例文件(.txt)放这里
+
+注意：根据你使用的模式，至少需要其中一个可执行文件
 
 
-【第三步：运行脚本】
+【第三步：选择运行模式】
+--------------------
+本工具支持两种求解模式，具有不同的算法和结果保存方式：
+
+>>> 模式1：CG模式（列生成算法，默认）<<<
+- 可执行文件：Drone_discrete_cg.exe
+- 结果保存位置：
+  * data/result/results.txt         ← 汇总结果（追加模式）
+  * data/result/detail_results.txt  ← 详细结果（追加模式）
+  * data/.out/算例名.txt.out        ← 每个算例的完整日志
+
+>>> 模式2：Arc Model模式（弧流模型）<<<
+- 可执行文件：Drone_discrete_arc_model.exe
+- 结果保存位置：
+  * data/.out/算例名.txt.out        ← 每个算例的详细输出结果
+
+【如何切换模式】
+1. 用文本编辑器打开 launch_jobs.sh 文件
+
+2. 找到第42行（或搜索 EXE_PATH）：
+   EXE_PATH="${ROOT_DIR}/Drone_discrete_cg.exe"
+
+3. 修改为你想使用的模式：
+   # CG模式（默认）
+   EXE_PATH="${ROOT_DIR}/Drone_discrete_cg.exe"
+   
+   # Arc Model模式
+   EXE_PATH="${ROOT_DIR}/Drone_discrete_arc_model.exe"
+
+4. 保存文件
+
+注意：切换模式后，确保对应的可执行文件存在于项目根目录中！
+
+
+【第四步：运行脚本】
 --------------------
 
 >>> Windows 用户 <<<
@@ -67,9 +104,17 @@ nohup ./launch_jobs.sh > run.log 2>&1 &
 
 【查看结果】
 --------------------
-运行完成后，结果保存在：
-  data/result/results.txt         ← 汇总结果
-  data/result/detail_results.txt  ← 详细结果
+根据你使用的模式，结果保存在不同位置：
+
+>>> CG模式的结果 <<<
+  data/result/results.txt         ← 汇总结果（所有算例）
+  data/result/detail_results.txt  ← 详细结果（所有算例）
+  data/.out/算例名.txt.out        ← 单个算例的完整日志
+
+>>> Arc Model模式的结果 <<<
+  data/.out/算例名.txt.out        ← 每个算例的详细输出
+  
+提示：所有模式的错误日志都保存在 data/.err/ 目录
 
 
 【常见问题】
@@ -81,30 +126,19 @@ A: 没关系！再次运行脚本，会自动跳过已完成的算例。
 Q: 想重新运行某个算例怎么办？
 A: 打开 data/solved_instances.txt，删除对应的算例名称行。
 
+Q: 如何切换两种模式（CG / Arc Model）？
+A: 编辑 launch_jobs.sh 第42行，修改 EXE_PATH 指向对应的可执行文件。
+   详见"第三步：选择运行模式"说明。
+
+Q: 两种模式可以同时运行吗？
+A: 不建议。切换模式前建议备份之前的结果，或使用不同的 data 目录。
+
 Q: 出错了怎么办？
 A: 查看 data/.err/ 目录下对应的错误日志文件。
 
 Q: Windows 上提示找不到命令？
 A: 必须使用 Git Bash，不能用 CMD 或 PowerShell。
 
-
-【脚本特性】
---------------------
-✓ 零配置 - 解压即用
-✓ 自动跳过已完成的算例
-✓ 自动创建输出目录
-✓ 实时显示进度
-✓ 详细的统计信息
-✓ 完整的错误日志
-
-
-【需要帮助？】
---------------------
-详细文档请查看：
-  - QUICK_START.md       （快速入门）
-  - README_LAUNCH_JOBS.md （完整文档）
-
-
-祝实验顺利！
-===============================================
+Q: 提示找不到可执行文件？
+A: 检查你选择的模式对应的 .exe 文件是否存在于项目根目录中。
 
