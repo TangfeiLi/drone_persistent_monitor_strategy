@@ -1,0 +1,227 @@
+cg end!
+The columns size of CG = 1266
+begin to obtain upper bound by heuristic method
+begin to solve solve_UB_using_IPsolver
+begin to solve integer program
+CPXPARAM_TimeLimit                               1800
+CPXPARAM_Threads                                 8
+Found incumbent of value 197.000000 after 0.00 sec. (0.19 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 87 rows and 1342 columns.
+Aggregator did 1 substitutions.
+Reduced MIP has 44 rows, 343 columns, and 4489 nonzeros.
+Reduced MIP has 343 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (10.05 ticks)
+Probing time = 0.02 sec. (0.16 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 0 rows and 1 columns.
+Reduced MIP has 44 rows, 342 columns, and 4482 nonzeros.
+Reduced MIP has 342 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (3.01 ticks)
+Probing time = 0.00 sec. (0.16 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.00 sec. (0.79 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                          197.0000        8.0000            95.94%
+*     0+    0                          102.0000        8.0000            92.16%
+*     0     0      integral     0       95.0000       95.0000       57    0.00%
+Elapsed time = 0.02 sec. (15.55 ticks, tree = 0.00 MB, solutions = 2)
+
+Root node processing (before b&c):
+  Real time             =    0.02 sec. (15.63 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.02 sec. (15.63 ticks)
+Congratulate!! find an integer solution!!
+***********The information of result from CG algorithm**********
+***********The information of result from CG algorithm**********
+***********The information of result from CG algorithm**********
+The time running CG = 0.513
+The iter number  = 66
+The information of optimal solution:
+The cost = 95
+The routes:
+The decision value of route2: 0.333333	the cost of route: 6	the path of route:(0,0),(1,2),(2,4),(0,6),
+The decision value of route8: 0.333333	the cost of route: 8	the path of route:(0,0),(1,2),(6,4),(2,6),(0,8),
+The decision value of route21: 0.333333	the cost of route: 9	the path of route:(0,0),(1,2),(10,5),(0,9),
+The decision value of route206: 1	the cost of route: 4	the path of route:(0,9),(2,11),(0,1),
+The decision value of route504: 1	the cost of route: 4	the path of route:(0,9),(3,11),(0,1),
+The decision value of route614: 1	the cost of route: 6	the path of route:(0,0),(2,2),(1,4),(0,6),
+The decision value of route622: 1	the cost of route: 4	the path of route:(0,9),(1,11),(0,1),
+The decision value of route661: 0.333333	the cost of route: 6	the path of route:(0,1),(3,3),(2,5),(0,7),
+The decision value of route743: 1	the cost of route: 6	the path of route:(0,8),(4,11),(0,2),
+The decision value of route767: 1	the cost of route: 7	the path of route:(0,7),(1,9),(5,11),(0,2),
+The decision value of route818: 1	the cost of route: 6	the path of route:(0,8),(6,11),(0,2),
+The decision value of route822: 1	the cost of route: 10	the path of route:(0,5),(1,7),(6,9),(10,11),(0,3),
+The decision value of route861: 0.333333	the cost of route: 8	the path of route:(0,1),(2,3),(7,5),(3,7),(0,9),
+The decision value of route882: 1	the cost of route: 8	the path of route:(0,7),(8,11),(0,3),
+The decision value of route898: 0.333333	the cost of route: 8	the path of route:(0,1),(3,3),(7,5),(2,7),(0,9),
+The decision value of route901: 0.333333	the cost of route: 8	the path of route:(0,1),(3,3),(7,5),(3,7),(0,9),
+The decision value of route934: 0.333333	the cost of route: 10	the path of route:(0,0),(6,3),(10,5),(2,8),(0,10),
+The decision value of route942: 0.333333	the cost of route: 9	the path of route:(0,0),(6,3),(10,5),(0,9),
+The decision value of route1195: 1	the cost of route: 8	the path of route:(0,7),(9,11),(0,3),
+The decision value of route1245: 0.666667	the cost of route: 8	the path of route:(0,7),(2,9),(7,11),(0,3),
+The decision value of route1246: 0.333333	the cost of route: 8	the path of route:(0,7),(3,9),(7,11),(0,3),
+
+The avg target number per drone = 1.95238
+The max drones num at same time = 12.6667
+
+1e+08	95	99.9999	lower
+ip solution: 95
+95	95	0	upper
+already find the best integer solution in the root node! 
+ 
+**********The result of Branch and Price**********
+**********The result of Branch and Price**********
+**********The result of Branch and Price**********
+the running time of root node = 0.513 s
+the running time of subproblem in the root node = 0.414 s, the percentage = 80.7018 %
+the running time of Branch and Price = 2.64684e-312 s
+the running time of cg in the whole tree = 0.513 s, the percentage = inf %
+the running time of subproblem in the whole tree = 0.414 s, the percentage = 80.7018 %
+the running time of heuristic_ip_running_time = 0.045 s
+the running time of route enumeration = 0 s
+the running time of reduced cost fixing = 0 s
+the running time of diving = 2.64684e-312 s
+the upper bound = 95
+the lower bound = 95
+the cost of best lp solution = 95
+the gap = 0 %
+the column enumeration columns number = 0 
+the columns number = 1266 
+the branch number = 0
+the branch node number = 1
+the branch depth = 1
+the gap time during [10, 5, 3, 2, 1] = [0, 0, 0, 0, 0]
+the ip solution found and time = (95, 0.565), 
+
+the solution associated with upper bound: 
+The cost = 95
+The routes:
+The decision value of route2: 0.333333	the cost of route: 6	the path of route:(0,0),(1,2),(2,4),(0,6),
+The decision value of route8: 0.333333	the cost of route: 8	the path of route:(0,0),(1,2),(6,4),(2,6),(0,8),
+The decision value of route21: 0.333333	the cost of route: 9	the path of route:(0,0),(1,2),(10,5),(0,9),
+The decision value of route206: 1	the cost of route: 4	the path of route:(0,9),(2,11),(0,1),
+The decision value of route504: 1	the cost of route: 4	the path of route:(0,9),(3,11),(0,1),
+The decision value of route614: 1	the cost of route: 6	the path of route:(0,0),(2,2),(1,4),(0,6),
+The decision value of route622: 1	the cost of route: 4	the path of route:(0,9),(1,11),(0,1),
+The decision value of route661: 0.333333	the cost of route: 6	the path of route:(0,1),(3,3),(2,5),(0,7),
+The decision value of route743: 1	the cost of route: 6	the path of route:(0,8),(4,11),(0,2),
+The decision value of route767: 1	the cost of route: 7	the path of route:(0,7),(1,9),(5,11),(0,2),
+The decision value of route818: 1	the cost of route: 6	the path of route:(0,8),(6,11),(0,2),
+The decision value of route822: 1	the cost of route: 10	the path of route:(0,5),(1,7),(6,9),(10,11),(0,3),
+The decision value of route861: 0.333333	the cost of route: 8	the path of route:(0,1),(2,3),(7,5),(3,7),(0,9),
+The decision value of route882: 1	the cost of route: 8	the path of route:(0,7),(8,11),(0,3),
+The decision value of route898: 0.333333	the cost of route: 8	the path of route:(0,1),(3,3),(7,5),(2,7),(0,9),
+The decision value of route901: 0.333333	the cost of route: 8	the path of route:(0,1),(3,3),(7,5),(3,7),(0,9),
+The decision value of route934: 0.333333	the cost of route: 10	the path of route:(0,0),(6,3),(10,5),(2,8),(0,10),
+The decision value of route942: 0.333333	the cost of route: 9	the path of route:(0,0),(6,3),(10,5),(0,9),
+The decision value of route1195: 1	the cost of route: 8	the path of route:(0,7),(9,11),(0,3),
+The decision value of route1245: 0.666667	the cost of route: 8	the path of route:(0,7),(2,9),(7,11),(0,3),
+The decision value of route1246: 0.333333	the cost of route: 8	the path of route:(0,7),(3,9),(7,11),(0,3),
+
+The avg target number per drone = 1.95238
+The max drones num at same time = 12.6667
+
+the solution associated with lower bound: 
+The cost = 95
+The routes:
+The decision value of route2: 0.333333	the cost of route: 6	the path of route:(0,0),(1,2),(2,4),(0,6),
+The decision value of route8: 0.333333	the cost of route: 8	the path of route:(0,0),(1,2),(6,4),(2,6),(0,8),
+The decision value of route21: 0.333333	the cost of route: 9	the path of route:(0,0),(1,2),(10,5),(0,9),
+The decision value of route206: 1	the cost of route: 4	the path of route:(0,9),(2,11),(0,1),
+The decision value of route504: 1	the cost of route: 4	the path of route:(0,9),(3,11),(0,1),
+The decision value of route614: 1	the cost of route: 6	the path of route:(0,0),(2,2),(1,4),(0,6),
+The decision value of route622: 1	the cost of route: 4	the path of route:(0,9),(1,11),(0,1),
+The decision value of route661: 0.333333	the cost of route: 6	the path of route:(0,1),(3,3),(2,5),(0,7),
+The decision value of route743: 1	the cost of route: 6	the path of route:(0,8),(4,11),(0,2),
+The decision value of route767: 1	the cost of route: 7	the path of route:(0,7),(1,9),(5,11),(0,2),
+The decision value of route818: 1	the cost of route: 6	the path of route:(0,8),(6,11),(0,2),
+The decision value of route822: 1	the cost of route: 10	the path of route:(0,5),(1,7),(6,9),(10,11),(0,3),
+The decision value of route861: 0.333333	the cost of route: 8	the path of route:(0,1),(2,3),(7,5),(3,7),(0,9),
+The decision value of route882: 1	the cost of route: 8	the path of route:(0,7),(8,11),(0,3),
+The decision value of route898: 0.333333	the cost of route: 8	the path of route:(0,1),(3,3),(7,5),(2,7),(0,9),
+The decision value of route901: 0.333333	the cost of route: 8	the path of route:(0,1),(3,3),(7,5),(3,7),(0,9),
+The decision value of route934: 0.333333	the cost of route: 10	the path of route:(0,0),(6,3),(10,5),(2,8),(0,10),
+The decision value of route942: 0.333333	the cost of route: 9	the path of route:(0,0),(6,3),(10,5),(0,9),
+The decision value of route1195: 1	the cost of route: 8	the path of route:(0,7),(9,11),(0,3),
+The decision value of route1245: 0.666667	the cost of route: 8	the path of route:(0,7),(2,9),(7,11),(0,3),
+The decision value of route1246: 0.333333	the cost of route: 8	the path of route:(0,7),(3,9),(7,11),(0,3),
+
+The avg target number per drone = 1.95238
+The max drones num at same time = 12.6667
+
+the best lp solution: 
+The cost = 95
+The routes:
+The decision value of route2: 0.333333	the cost of route: 6	the path of route:(0,0),(1,2),(2,4),(0,6),
+The decision value of route8: 0.333333	the cost of route: 8	the path of route:(0,0),(1,2),(6,4),(2,6),(0,8),
+The decision value of route21: 0.333333	the cost of route: 9	the path of route:(0,0),(1,2),(10,5),(0,9),
+The decision value of route206: 1	the cost of route: 4	the path of route:(0,9),(2,11),(0,1),
+The decision value of route504: 1	the cost of route: 4	the path of route:(0,9),(3,11),(0,1),
+The decision value of route614: 1	the cost of route: 6	the path of route:(0,0),(2,2),(1,4),(0,6),
+The decision value of route622: 1	the cost of route: 4	the path of route:(0,9),(1,11),(0,1),
+The decision value of route661: 0.333333	the cost of route: 6	the path of route:(0,1),(3,3),(2,5),(0,7),
+The decision value of route743: 1	the cost of route: 6	the path of route:(0,8),(4,11),(0,2),
+The decision value of route767: 1	the cost of route: 7	the path of route:(0,7),(1,9),(5,11),(0,2),
+The decision value of route818: 1	the cost of route: 6	the path of route:(0,8),(6,11),(0,2),
+The decision value of route822: 1	the cost of route: 10	the path of route:(0,5),(1,7),(6,9),(10,11),(0,3),
+The decision value of route861: 0.333333	the cost of route: 8	the path of route:(0,1),(2,3),(7,5),(3,7),(0,9),
+The decision value of route882: 1	the cost of route: 8	the path of route:(0,7),(8,11),(0,3),
+The decision value of route898: 0.333333	the cost of route: 8	the path of route:(0,1),(3,3),(7,5),(2,7),(0,9),
+The decision value of route901: 0.333333	the cost of route: 8	the path of route:(0,1),(3,3),(7,5),(3,7),(0,9),
+The decision value of route934: 0.333333	the cost of route: 10	the path of route:(0,0),(6,3),(10,5),(2,8),(0,10),
+The decision value of route942: 0.333333	the cost of route: 9	the path of route:(0,0),(6,3),(10,5),(0,9),
+The decision value of route1195: 1	the cost of route: 8	the path of route:(0,7),(9,11),(0,3),
+The decision value of route1245: 0.666667	the cost of route: 8	the path of route:(0,7),(2,9),(7,11),(0,3),
+The decision value of route1246: 0.333333	the cost of route: 8	the path of route:(0,7),(3,9),(7,11),(0,3),
+
+The avg target number per drone = 1.95238
+The max drones num at same time = 12.6667
+
+the root columns solution: 
+The cost = 95
+The routes:
+The decision value of route --: 1	the cost of route: 6	the path of route:(0,0),(1,2),(2,4),(0,6),
+The decision value of route --: 1	the cost of route: 8	the path of route:(0,7),(8,11),(0,3),
+The decision value of route --: 1	the cost of route: 6	the path of route:(0,8),(6,11),(0,2),
+The decision value of route --: 1	the cost of route: 4	the path of route:(0,9),(2,11),(0,1),
+The decision value of route --: 1	the cost of route: 10	the path of route:(0,0),(2,2),(10,5),(1,8),(0,10),
+The decision value of route --: 1	the cost of route: 4	the path of route:(0,9),(3,11),(0,1),
+The decision value of route --: 1	the cost of route: 7	the path of route:(0,7),(3,9),(5,11),(0,2),
+The decision value of route --: 1	the cost of route: 6	the path of route:(0,8),(4,11),(0,2),
+The decision value of route --: 1	the cost of route: 4	the path of route:(0,9),(1,11),(0,1),
+The decision value of route --: 1	the cost of route: 7	the path of route:(0,0),(6,3),(1,5),(0,7),
+The decision value of route --: 1	the cost of route: 8	the path of route:(0,1),(3,3),(7,5),(2,7),(0,9),
+The decision value of route --: 1	the cost of route: 8	the path of route:(0,7),(9,11),(0,3),
+The decision value of route --: 1	the cost of route: 8	the path of route:(0,7),(2,9),(7,11),(0,3),
+The decision value of route --: 1	the cost of route: 9	the path of route:(0,6),(6,9),(10,11),(0,3),
+
+The avg target number per drone = 1.64286
+The max drones num at same time = 13
+
+the reduced cost solution: 
+The cost = 1.13106e-311
+The routes:
+
+The avg target number per drone = -nan(ind)
+The max drones num at same time = 0
+
+the last bp solution: 
+The cost = 6.95328e-310
+The routes:
+
+The avg target number per drone = -nan(ind)
+The max drones num at same time = 0
+
+**********The result of Branch and Price**********
+**********The result of Branch and Price**********
+**********The result of Branch and Price**********

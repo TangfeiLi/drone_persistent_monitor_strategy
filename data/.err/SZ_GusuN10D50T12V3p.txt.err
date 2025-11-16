@@ -1,0 +1,117 @@
+**************JSON INFORMATION***************
+**************JSON INFORMATION***************
+**************JSON INFORMATION***************
+branch_strategy: cluster
+cluster_length: 6
+max_branch_time: 7200
+max_branch_num: 200000
+min_gap: 0
+isEucli: 0
+cluster	
+max routes: 50
+cluster length minus: 
+0	
+**************JSON INFORMATION***************
+**************JSON INFORMATION***************
+**************JSON INFORMATION***************
+******************Basic Information of Parameter**********************
+******************Basic Information of Parameter**********************
+******************Basic Information of Parameter**********************
+Parameter: diff = 1
+Parameter: multiplier = 4.01213e-315
+Parameter: fixthreshold = 1: 0.8
+0: -0.1
+Parameter: LpSolvingTime = 600
+Parameter: maxRoute = 50
+Parameter: squeezethreshold = 1e+08
+Parameter: maxTime = 3600
+Parameter: dualCoeVec = [0.6,1,]
+10,100000000,]
+numNode	numCus	ID_Depot	Mile(min)	Begin	End	numUAV
+11	10	0	10	0	12	50
+time_vec & deta1 & deta2:
+0	10000000	2	2	2	3	3	3	4	4	4	4	0	100000
+1	2	10000000	2	3	2	2	2	4	3	3	3	0	3
+2	2	2	10000000	2	2	2	2	2	4	3	3	0	3
+3	2	3	2	10000000	4	2	2	2	4	4	3	0	3
+4	3	2	2	4	10000000	2	3	4	2	2	2	0	12
+5	3	2	2	2	2	10000000	2	3	2	2	2	0	6
+6	3	2	2	2	3	2	10000000	2	4	2	2	0	6
+7	4	4	2	2	4	3	2	10000000	5	4	2	0	6
+8	4	3	4	4	2	2	4	5	10000000	2	3	0	12
+9	4	3	3	4	2	2	2	4	2	10000000	2	0	12
+10	4	3	3	3	2	2	2	2	3	2	10000000	0	12
+************Basic Information of Instance*****************
+
+Number of Customers=10
+Max Number of UAVs=50
+Max Flying Time of UAV=10
+Planning Horizon=[0,12]
+Number of time point=12
+************Basic Information of Utility*****************
+
+cluster length = 6
+cluster length minus= 0
+max_branch_time = 7200
+max_branch_num = 200000
+branch strategies = [cluster,]
+switch branch strategy time = [7200,7200,]
+switch branch strategy num = [300000,480000,]
+
+**********************************************************
+
+it's dealing to get arc set....
+node size = 132
+arc size = 1051
+The objective of subproblem iter1=100000
+The objective of subproblem iter2=100000
+The objective of subproblem iter3=100000
+The objective of subproblem iter4=100000
+The objective of subproblem iter5=100000
+The objective of subproblem iter6=100000
+The objective of subproblem iter7=100000
+The objective of subproblem iter8=100000
+The objective of subproblem iter9=100000
+The objective of subproblem iter10=100000
+The objective of subproblem iter11=100000
+The objective of subproblem iter12=100000
+The objective of subproblem iter13=100000
+The objective of subproblem iter14=100000
+The objective of subproblem iter15=100000
+The objective of subproblem iter16=100000
+The objective of subproblem iter17=100000
+The objective of subproblem iter18=100000
+The objective of subproblem iter19=100000
+The objective of subproblem iter20=100000
+The objective of subproblem iter21=105.5
+The objective of subproblem iter22=105.25
+The objective of subproblem iter23=105.125
+The objective of subproblem iter24=105
+The objective of subproblem iter25=105
+The objective of subproblem iter26=105
+The objective of subproblem iter27=105
+The objective of subproblem iter28=105
+The objective of subproblem iter29=105
+The objective of subproblem iter30=105
+The objective of subproblem iter31=105
+The objective of subproblem iter32=105
+The objective of subproblem iter33=105
+The objective of subproblem iter34=105
+The objective of subproblem iter35=105
+The objective of subproblem iter36=105
+The objective of subproblem iter37=105
+The objective of subproblem iter38=105
+The objective of subproblem iter39=105
+The objective of subproblem iter40=105
+The objective of subproblem iter41=105
+The objective of subproblem iter42=105
+The objective of subproblem iter43=105
+
+
+******************* update the dual alpha *******************
+
+
+******************* update the label size *******************
+The objective of subproblem iter44=100
+The objective of subproblem iter45=98.5
+The objective of subproblem iter46=98.5
